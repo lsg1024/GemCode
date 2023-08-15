@@ -7,27 +7,26 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.gemcode.R
+import com.example.gemcode.databinding.FragmentOrderBinding
 import com.example.gemcode.viewmodel.OrderViewModel
 
 class OrderFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = OrderFragment()
-    }
-
+    private var _binding : FragmentOrderBinding? = null
+    private val binding get() = _binding!!
     private lateinit var viewModel: OrderViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_order, container, false)
+    ): View {
+        _binding = FragmentOrderBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OrderViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
     }
-
 }
