@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GemCode</string>
+    <string name="order">주문하기</string>
 </resources>

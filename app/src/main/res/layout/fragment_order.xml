@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="주문하기"
+        android:text="@string/order"
         android:textColor="@color/black"
         android:textSize="40dp"
         android:textStyle="bold"
