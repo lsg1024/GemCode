@@ -53,6 +53,7 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:2.6.0")
     testImplementation("junit:junit:4.13.2")
 
+//  zxing 라이브러리
     implementation ("com.journeyapps:zxing-android-embedded:4.3.0")
 
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
