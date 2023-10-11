@@ -1,12 +1,10 @@
-package com.example.gemcode.view
+package com.example.gemcode.view.order
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.gemcode.R
+import androidx.fragment.app.Fragment
 import com.example.gemcode.databinding.FragmentOrderAccountBinding
 import com.example.gemcode.viewmodel.OrderAccountViewModel
 
