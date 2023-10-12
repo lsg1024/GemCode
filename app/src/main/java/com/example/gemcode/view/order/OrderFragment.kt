@@ -12,6 +12,8 @@ import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
+import com.example.gemcode.R
 import com.example.gemcode.databinding.FragmentOrderBinding
 import com.example.gemcode.view.CustomBarcodeScannerActivity
 import com.example.gemcode.viewmodel.OrderViewModel
@@ -23,7 +25,41 @@ class OrderFragment : Fragment() {
 
     private var _binding : FragmentOrderBinding? = null
     private val binding get() = _binding!!
+
     private lateinit var viewModel: OrderViewModel
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentOrderBinding.inflate(inflater, container, false)
+
+        initViews()
+
+        binding.factoryName.setOnClickListener {
+            findNavController().navigate(R.id.action_orderFragment_to_orderAccountFragment)
+        }
+
+        return binding.root
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        _binding = null
+    }
+
+    private fun checkPermissionAndShowActivity(context : Context) {
+        if (ContextCompat.checkSelfPermission(
+            context,
+            Manifest.permission.CAMERA
+        ) == PackageManager.PERMISSION_GRANTED) {
+            showCamera()
+        } else if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
+            showPermissionRationaleDialog(context)
+        } else {
+            requestCameraPermission()
+        }
+    }
 
     private val requestPermissionLauncher =
         registerForActivityResult(ActivityResultContracts.RequestPermission()) { isGranted: Boolean ->
@@ -63,35 +99,6 @@ class OrderFragment : Fragment() {
         binding.textView4.text = contents
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        _binding = FragmentOrderBinding.inflate(inflater, container, false)
-
-        initViews()
-
-        return binding.root
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        _binding = null
-    }
-
-    private fun checkPermissionAndShowActivity(context : Context) {
-        if (ContextCompat.checkSelfPermission(
-            context,
-            Manifest.permission.CAMERA
-        ) == PackageManager.PERMISSION_GRANTED) {
-            showCamera()
-        } else if (shouldShowRequestPermissionRationale(Manifest.permission.CAMERA)) {
-            showPermissionRationaleDialog(context)
-        } else {
-            requestCameraPermission()
-        }
-    }
-
     private fun showCamera() {
         val scanOptions = ScanOptions()
         scanOptions.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
@@ -127,4 +134,5 @@ class OrderFragment : Fragment() {
         // 권한 요청 다이얼로그 띄우기
         requestPermissionLauncher.launch(Manifest.permission.CAMERA)
     }
+
 }

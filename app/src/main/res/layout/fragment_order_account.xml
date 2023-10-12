@@ -37,7 +37,7 @@
                 android:layout_margin="10dp"
                 android:drawableEnd="@drawable/baseline_search_48"
                 android:paddingStart="20dp"
-                android:text="검색창"
+                android:hint="검색창"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
