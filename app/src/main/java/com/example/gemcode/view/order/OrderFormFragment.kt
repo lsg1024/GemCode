@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -23,7 +22,7 @@ import com.journeyapps.barcodescanner.ScanContract
 import com.journeyapps.barcodescanner.ScanIntentResult
 import com.journeyapps.barcodescanner.ScanOptions
 
-class OrderFragment : Fragment() {
+class OrderFormFragment : Fragment() {
 
     private var _binding : FragmentOrderBinding? = null
     private val binding get() = _binding!!
@@ -111,7 +110,7 @@ class OrderFragment : Fragment() {
     private fun setResult(contents: String) {
         binding.textView4.text = contents
     }
-
+    // 카메라 호출 코드
     private fun showCamera() {
         val scanOptions = ScanOptions()
         scanOptions.setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
@@ -123,13 +122,13 @@ class OrderFragment : Fragment() {
         barcodeCodeLauncher.launch(scanOptions)
 
     }
-
+    // 퍼미션 체크
     private fun initViews() {
         binding.barcodeScanLayout.setOnClickListener { view: View? -> checkPermissionAndShowActivity(
             requireContext()
         ) }
     }
-
+    // 퍼미션 다이얼로그
     private fun showPermissionRationaleDialog(context: Context) {
         AlertDialog.Builder(context)
             .setTitle("권한 필요")
@@ -142,9 +141,8 @@ class OrderFragment : Fragment() {
             }
             .show()
     }
-
+    // 퍼미션 거절시 다이얼로그
     private fun requestCameraPermission() {
-        // 권한 요청 다이얼로그 띄우기
         requestPermissionLauncher.launch(Manifest.permission.CAMERA)
     }
 

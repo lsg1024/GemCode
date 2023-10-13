@@ -6,14 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.EditText
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
-import com.example.gemcode.R
-import com.example.gemcode.databinding.FragmentOrderDetailBinding
+import com.example.gemcode.databinding.FragmentOrderFormBinding
 import com.example.gemcode.viewmodel.OrderDetailViewModel
 
-class OrderDetailFragment : Fragment() {
+class OrderDetailFormFragment : Fragment() {
 
-    private var _binding : FragmentOrderDetailBinding? = null
+    private var _binding : FragmentOrderFormBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: OrderDetailViewModel
     private lateinit var modelNumber : EditText
@@ -23,7 +21,7 @@ class OrderDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentOrderDetailBinding.inflate(inflater, container, false)
+        _binding = FragmentOrderFormBinding.inflate(inflater, container, false)
 
         val bundle = arguments
         modelNumber = binding.modelNumberEditText

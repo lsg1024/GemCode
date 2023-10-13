@@ -6,8 +6,6 @@ import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -18,10 +16,9 @@ import com.example.gemcode.R
 import com.example.gemcode.adapter.StoreAdapter
 import com.example.gemcode.databinding.FragmentOrderAccountBinding
 import com.example.gemcode.dto.FactoryAndStore
-import com.example.gemcode.interFace.TextListener
 import com.example.gemcode.viewmodel.OrderAccountViewModel
 
-class OrderAccountFragment : Fragment(){
+class OrderFindStoreFragment : Fragment(){
 
     private var _binding : FragmentOrderAccountBinding? = null
     private val binding get() = _binding!!
