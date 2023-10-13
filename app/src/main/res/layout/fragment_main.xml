@@ -37,16 +37,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/baseline_format_list_bulleted" />
+            android:src="@drawable/baseline_receipt_long_24" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="10dp"
-            android:text="제품 목록"
+            android:text="전체 주문목록"
             android:textColor="@color/black"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -65,16 +65,16 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="10dp"
-            android:src="@drawable/baseline_format_list_bulleted" />
+            android:src="@drawable/edit_square_96dp" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center"
             android:layout_marginBottom="10dp"
-            android:text="제품 목록"
+            android:text="금일 주문목록"
             android:textColor="@color/black"
-            android:textSize="24dp" />
+            android:textSize="20dp" />
 
     </androidx.cardview.widget.CardView>
 
@@ -98,8 +98,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="제품 목록"
-            android:textSize="24dp"
+            android:text="제품목록"
+            android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:layout_gravity="bottom|center"
             android:textColor="@color/black"/>
@@ -127,7 +127,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="사용자"
-            android:textSize="24dp"
+            android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:layout_gravity="bottom|center"
             android:textColor="@color/black"/>

@@ -8,8 +8,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -27,17 +29,24 @@ class OrderFragment : Fragment() {
     private val binding get() = _binding!!
 
     private lateinit var viewModel: OrderViewModel
+    private lateinit var storeName : TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentOrderBinding.inflate(inflater, container, false)
+        storeName = binding.storeName
 
         initViews()
 
-        binding.factoryName.setOnClickListener {
+        binding.storeName.setOnClickListener {
             findNavController().navigate(R.id.action_orderFragment_to_orderAccountFragment)
+        }
+        val bundle = arguments
+        if (bundle != null) {
+            val storeNameBundle = bundle.getString("selectedStoreName")
+            storeName.text = storeNameBundle
         }
 
         return binding.root
@@ -91,10 +100,14 @@ class OrderFragment : Fragment() {
             if (result.contents == null) {
                 Toast.makeText(context, "취소", Toast.LENGTH_LONG).show()
             } else {
-                setResult(result.contents)
+                val bundle = Bundle()
+                bundle.putString("model_number",result.contents)
+                findNavController().navigate(R.id.action_orderFragment_to_orderDetailFragment, bundle)
+//                setResult(result.contents)
             }
         }
 
+    // 결과 테스트 코드
     private fun setResult(contents: String) {
         binding.textView4.text = contents
     }

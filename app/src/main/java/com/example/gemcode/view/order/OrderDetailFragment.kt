@@ -4,30 +4,36 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.gemcode.R
+import com.example.gemcode.databinding.FragmentOrderDetailBinding
 import com.example.gemcode.viewmodel.OrderDetailViewModel
 
 class OrderDetailFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = OrderDetailFragment()
-    }
-
+    private var _binding : FragmentOrderDetailBinding? = null
+    private val binding get() = _binding!!
     private lateinit var viewModel: OrderDetailViewModel
+    private lateinit var modelNumber : EditText
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.fragment_order_detail, container, false)
+
+        _binding = FragmentOrderDetailBinding.inflate(inflater, container, false)
+
+        val bundle = arguments
+        modelNumber = binding.modelNumberEditText
+        if (bundle != null) {
+            val modelBundle = bundle.getString("model_number")
+            modelNumber.setText(modelBundle)
+        }
+
+        return binding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(OrderDetailViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
 }
