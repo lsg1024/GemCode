@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_mainFragment_to_registerPageFragment"
             app:destination="@id/registerPageFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_productListFragment"
+            app:destination="@id/productListFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderFragment"
@@ -37,6 +43,9 @@
         <action
             android:id="@+id/action_orderAccountFragment_to_orderFragment"
             app:destination="@id/orderFragment" />
+        <action
+            android:id="@+id/action_orderAccountFragment_to_createItemFragment"
+            app:destination="@id/createItemFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderDetailFragment"
@@ -67,5 +76,27 @@
         <action
             android:id="@+id/action_registerDetailPageFragment_to_registerPageFragment"
             app:destination="@id/registerPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productListFragment"
+        android:name="com.example.gemcode.view.production.ProductListFragment"
+        android:label="fragment_product_list"
+        tools:layout="@layout/fragment_product_list" />
+    <fragment
+        android:id="@+id/createDetailFormFragment"
+        android:name="com.example.gemcode.view.create.CreateDetailFormFragment"
+        android:label="fragment_create_detail_form"
+        tools:layout="@layout/fragment_create_detail_form" />
+    <fragment
+        android:id="@+id/createItemFragment"
+        android:name="com.example.gemcode.view.create.CreateItemFragment"
+        android:label="fragment_create_item"
+        tools:layout="@layout/fragment_create_item" >
+        <action
+            android:id="@+id/action_createItemFragment_to_createDetailFormFragment"
+            app:destination="@id/createDetailFormFragment" />
+        <action
+            android:id="@+id/action_createItemFragment_to_orderAccountFragment"
+            app:destination="@id/orderAccountFragment" />
     </fragment>
 </navigation>

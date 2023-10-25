@@ -4,22 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.order.OrderDetailFormFragment">
+    tools:context=".view.create.CreateDetailFormFragment">
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"
-        android:text="모델 번호"
+        android:text="세부 내역"
         android:textColor="@color/black"
         android:textSize="40dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="20dp"
+        android:src="@drawable/baseline_photo_camera_24"
+        app:layout_constraintBottom_toBottomOf="@+id/textView18"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView18" />
+
     <EditText
-        android:id="@+id/model_numberEditText"
+        android:id="@+id/createDetail_numberEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="모델 번호를 작성해주세요"
@@ -30,26 +39,29 @@
         android:layout_marginTop="20dp"
         android:layout_marginStart="25dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView18" />
 
-    <Spinner
-        android:id="@+id/model_color_spinner"
+    <TextView
+        android:id="@+id/createDetail_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="@+id/model_numberEditText"
+        android:text="18kp"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/createDetail_numberEditText"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/model_numberEditText"/>
+        app:layout_constraintTop_toTopOf="@+id/createDetail_numberEditText"/>
 
     <ImageView
-        android:id="@+id/model_imageView"
+        android:id="@+id/createDetail_ImageView"
         android:layout_width="300dp"
         android:layout_height="300dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginTop="20dp"
         android:src="@drawable/ic_launcher_foreground"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/createDetail_numberEditText" />
 
     <TextView
         android:id="@+id/textView8"
@@ -61,10 +73,10 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/model_imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/createDetail_ImageView" />
 
     <EditText
-        android:id="@+id/model_other_explainEdit"
+        android:id="@+id/createDetail_explainEdit"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:layout_margin="20dp"
@@ -75,7 +87,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/model_btn"
+        android:id="@+id/createDetail_btn"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:text="작성 완료"
@@ -89,5 +101,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
